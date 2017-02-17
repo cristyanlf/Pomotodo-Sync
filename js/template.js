@@ -133,7 +133,7 @@ var cardButtonCallback = function(t){
         alert(data);
       })
       .fail(function(jqXHR, textStatus, errorThrown) {
-        alert(jqXHR);
+        alert(jqXHR.code);
       })
       .always(function() {
         alert( "complete" );
