@@ -115,6 +115,7 @@ var cardButtonCallback = function(t){
   t.card('name')
   .get('name')
   .then(function(cardName){
+    alert(t.get('board', 'private', 'pomoapikey'));
     alert(cardName);
   });
   var items = Object.keys(parkMap).map(function(parkCode){
