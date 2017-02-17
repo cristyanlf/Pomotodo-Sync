@@ -118,7 +118,7 @@ var cardButtonCallback = function(t){
   .then(function(cardName){
     t.get('board', 'private', 'pomoapikey')
     .then(function(pomoApiKey){
-      $.ajax('https://api.pomotodo.com/1/account',{
+      var jqxhr = $.ajax('https://api.pomotodo.com/1/account',{
         crossDomain: true,
         headers: {
           'Authorization': 'token '+pomoApiKey
@@ -135,6 +135,12 @@ var cardButtonCallback = function(t){
           }
         })
       })
+      .fail(function() {
+        alert( "error" );
+      })
+      .always(function() {
+        alert( "complete" );
+      });
     })
   });
   alert('end')
