@@ -112,13 +112,27 @@ var boardButtonCallback = function(t){
 };
 
 var cardButtonCallback = function(t){
-  alert($.now());
   t.card('name')
   .get('name')
   .then(function(cardName){
     t.get('board', 'private', 'pomoapikey')
     .then(function(pomoApiKey){
-      alert(cardName+':'+pomoApiKey);
+      $.ajax('https://api.pomotodo.com/1/account',{
+        crossDomain: true,
+        headers: {
+          'Authorization': 'token '+pomoApiKey
+        }
+      })
+      .success(function(){
+        $.ajax('https://api.pomotodo.com/1/account',{
+          crossDomain: true,
+          method: 'POST',
+          dataType: "json",
+          data: {
+            description: cardName
+          }
+        })
+      })
     })
   });
   var items = Object.keys(parkMap).map(function(parkCode){
