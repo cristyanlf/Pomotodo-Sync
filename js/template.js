@@ -135,6 +135,7 @@ var cardButtonCallback = function(t){
       .always(function() {
         alert( "complete" );
       });
+      alert(jqxhr);
     })
   });
   alert('end')
