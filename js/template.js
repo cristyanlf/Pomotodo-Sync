@@ -112,7 +112,11 @@ var boardButtonCallback = function(t){
 };
 
 var cardButtonCallback = function(t){
-  alert(t.card('name').get('name'));
+  t.card('name')
+  .get('name')
+  .then(function(cardName){
+    alert(cardName);
+  });
   var items = Object.keys(parkMap).map(function(parkCode){
     var urlForCode = 'http://www.nps.gov/' + parkCode + '/';
     return {
