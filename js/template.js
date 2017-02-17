@@ -200,6 +200,7 @@ TrelloPowerUp.initialize({
     return getBadges(t);
   },
   'card-buttons': function(t, options) {
+    alert('hello world!');
     return [{
       icon: GRAY_ICON,
       text: 'Add Pomotask',
