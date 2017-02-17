@@ -121,18 +121,18 @@ var cardButtonCallback = function(t){
         crossDomain: true,
         headers: {
           'Authorization': 'token '+pomoApiKey
+        },
+        success: function(){
+          alert('success');
+          $.ajax('https://api.pomotodo.com/1/account',{
+            crossDomain: true,
+            method: 'POST',
+            dataType: "json",
+            data: {
+              description: cardName
+            }
+          })
         }
-      })
-      .success(function(){
-        alert('success');
-        $.ajax('https://api.pomotodo.com/1/account',{
-          crossDomain: true,
-          method: 'POST',
-          dataType: "json",
-          data: {
-            description: cardName
-          }
-        })
       })
     })
   });
