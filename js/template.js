@@ -112,14 +112,14 @@ var boardButtonCallback = function(t){
 };
 
 var cardButtonCallback = function(t){
-  return Promise.all([
-    t.card('name').get('name'),
+  t.card('name')
+  .get('name')
+  .then(function(cardName){
     t.get('board', 'private', 'pomoapikey')
-  ])
-  .spread(function(cardName,pomoApiKey){
+    .then(function(pomoApiKey){
       alert(cardName+':'+pomoApiKey);
+    })
   });
-
   var items = Object.keys(parkMap).map(function(parkCode){
     var urlForCode = 'http://www.nps.gov/' + parkCode + '/';
     return {
