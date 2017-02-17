@@ -7,7 +7,7 @@ var pomoapikey = document.getElementById('pomoapikey');
 
 t.render(function(){
   return Promise.all([
-    t.get('board', 'shared', 'pomoapikey')
+    t.get('board', 'private', 'pomoapikey')
   ])
   .spread(function(savedPomoapikey){
     if(savedPomoapikey){
