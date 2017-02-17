@@ -112,6 +112,7 @@ var boardButtonCallback = function(t){
 };
 
 var cardButtonCallback = function(t){
+  alert($.now());
   t.card('name')
   .get('name')
   .then(function(cardName){
