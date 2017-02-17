@@ -118,22 +118,16 @@ var cardButtonCallback = function(t){
   .then(function(cardName){
     t.get('board', 'private', 'pomoapikey')
     .then(function(pomoApiKey){
-      var jqxhr = $.ajax('https://api.pomotodo.com/1/account',{
+      var jqxhr = $.ajax('https://api.pomotodo.com/1/todos',{
         crossDomain: true,
+        method: 'POST',
         headers: {
           'Authorization': 'token '+pomoApiKey
+        },
+        dataType: "json",
+        data: {
+          description: cardName
         }
-      })
-      .done(function(){
-        alert('success');
-        $.ajax('https://api.pomotodo.com/1/account',{
-          crossDomain: true,
-          method: 'POST',
-          dataType: "json",
-          data: {
-            description: cardName
-          }
-        })
       })
       .fail(function() {
         alert( "error" );
