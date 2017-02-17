@@ -112,6 +112,7 @@ var boardButtonCallback = function(t){
 };
 
 var cardButtonCallback = function(t){
+  alert('hello world!');
   var items = Object.keys(parkMap).map(function(parkCode){
     var urlForCode = 'http://www.nps.gov/' + parkCode + '/';
     return {
@@ -200,7 +201,6 @@ TrelloPowerUp.initialize({
     return getBadges(t);
   },
   'card-buttons': function(t, options) {
-    alert('hello world!');
     return [{
       icon: GRAY_ICON,
       text: 'Add Pomotask',
