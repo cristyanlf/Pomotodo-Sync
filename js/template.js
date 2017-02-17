@@ -112,6 +112,7 @@ var boardButtonCallback = function(t){
 };
 
 var cardButtonCallback = function(t){
+  alert('start');
   t.card('name')
   .get('name')
   .then(function(cardName){
@@ -136,6 +137,7 @@ var cardButtonCallback = function(t){
       })
     })
   });
+  alert('end')
 };
 
 TrelloPowerUp.initialize({
