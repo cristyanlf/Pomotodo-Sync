@@ -126,10 +126,13 @@ var cardButtonCallback = function(t){
           'Authorization': 'token '+pomoApiKey
         },
         contentType: 'application/x-www-form-urlencoded',
-        data: 'description='+cardName
+        data: {
+          'description': cardName
+        }
       })
       .done(function(data, textStatus, jqXHR){
         console.log(JSON.stringify(data));
+        alert('Card:"'+cardName+'" added.');
       })
       .fail(function(jqXHR, textStatus, errorThrown) {
         console.log(JSON.stringify(jqXHR));
