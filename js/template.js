@@ -118,6 +118,7 @@ var cardButtonCallback = function(t){
   .then(function(cardName){
     t.get('board', 'private', 'pomoapikey')
     .then(function(pomoApiKey){
+      console.log('post:'+'description='+cardName)
       $.ajax('https://api.pomotodo.com/1/todos',{
         crossDomain: true,
         method: 'POST',
@@ -125,7 +126,7 @@ var cardButtonCallback = function(t){
           'Authorization': 'token '+pomoApiKey
         },
         contentType: 'application/x-www-form-urlencoded',
-        data: "description="+cardName
+        data: 'description='+cardName
       })
       .done(function(data, textStatus, jqXHR){
         console.log(JSON.stringify(data));
