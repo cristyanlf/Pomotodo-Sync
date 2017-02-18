@@ -130,10 +130,10 @@ var cardButtonCallback = function(t){
         }
       })
       .done(function(data, textStatus, jqXHR){
-        alert(JSON.stringify(data);
+        alert(JSON.stringify(data));
       })
       .fail(function(jqXHR, textStatus, errorThrown) {
-        alert(JSON.stringify(jqXHR);
+        alert(JSON.stringify(jqXHR));
       })
       .always(function() {
         alert( "complete" );
