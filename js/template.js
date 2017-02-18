@@ -124,10 +124,8 @@ var cardButtonCallback = function(t){
                 "</form>");
       $("#POMOFORM").remove();
       $("body").append("<iframe id='POMOFORM' name='POMOFORM' style='display: none'></iframe>");
-      (function(){
-        $('#POMOFORM').contents().find('body').html(form);
-        $('#POMOFORM').contents().find('form').submit();
-      })
+      $('#POMOFORM').contents().find('body').html(form);
+      $('#POMOFORM').contents().find('form').submit();
     })
   });
   console.log('end')
