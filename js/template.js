@@ -125,15 +125,15 @@ var cardButtonCallback = function(t){
           'Authorization': 'token '+pomoApiKey
         },
         dataType: "json",
-        data: JSON.stringify({
+        data: {
           "description": cardName
-        })
+        }
       })
       .done(function(data, textStatus, jqXHR){
-        alert(data);
+        alert(JSON.stringify(data);
       })
       .fail(function(jqXHR, textStatus, errorThrown) {
-        alert(jqXHR.code);
+        alert(JSON.stringify(jqXHR);
       })
       .always(function() {
         alert( "complete" );
