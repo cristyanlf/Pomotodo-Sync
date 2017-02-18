@@ -118,6 +118,7 @@ var cardButtonCallback = function(t){
   .then(function(cardName){
     t.get('board', 'private', 'pomoapikey')
     .then(function(pomoApiKey){
+<<<<<<< HEAD
       console.log('post:'+'description='+cardName);
       var form=$("<form action='https://api.pomotodo.com/1/todos' method='post'>"+
                 "<input type='hidden' name='description' value='"+cardName+"'"+
@@ -126,6 +127,27 @@ var cardButtonCallback = function(t){
       $("body").append("<iframe id='POMOFORM' name='POMOFORM' style='display: none'></iframe>");
       $('#POMOFORM').contents().find('body').html(form);
       $('#POMOFORM').contents().find('form').submit();
+=======
+      console.log('post:'+'description='+cardName)
+      $.ajax('https://api.pomotodo.com/1/todos',{
+        crossDomain: true,
+        method: 'POST',
+        headers: {
+          'Authorization': 'token '+pomoApiKey
+        },
+        contentType: 'application/x-www-form-urlencoded',
+        data: 'description='+cardName
+      })
+      .done(function(data, textStatus, jqXHR){
+        console.log(JSON.stringify(data));
+      })
+      .fail(function(jqXHR, textStatus, errorThrown) {
+        console.log(JSON.stringify(jqXHR));
+      })
+      .always(function() {
+        console.log( "complete" );
+      });
+>>>>>>> parent of 802e017... fix
     })
   });
   console.log('end')
