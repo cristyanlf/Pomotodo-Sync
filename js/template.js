@@ -119,21 +119,14 @@ var cardButtonCallback = function(t){
     t.get('board', 'private', 'pomoapikey')
     .then(function(pomoApiKey){
       console.log('post:'+'description='+cardName);
-      $.ajax('https://api.pomotodo.com/1/todos',{
-        crossDomain: true,
-        method: 'POST',
-        headers: {
-          'Authorization': 'token '+pomoApiKey
-        },
-        dataType:"jsonp",
-        contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
-        data: { description: cardName }
-      })
-      .done(function(data, textStatus, jqXHR){
-        console.log(JSON.stringify(data));
-      })
-      .fail(function(jqXHR, textStatus, errorThrown) {
-        console.log(errorThrown);
+      var form=$("<form action='https://api.pomotodo.com/1/todos' method='post'>"+
+                "<input type='hidden' name='description' value='"+cardName+"'"+
+                "</form>");
+      $("#POMOFORM").remove();
+      $("body").append("<iframe id='POMOFORM' name='POMOFORM' style='display: none'></iframe>");
+      (function(){
+        $('#POMOFORM').contents().find('body').html(form);
+        $('#POMOFORM').contents().find('form').submit();
       })
     })
   });
