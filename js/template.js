@@ -124,10 +124,8 @@ var cardButtonCallback = function(t){
         headers: {
           'Authorization': 'token '+pomoApiKey
         },
-        dataType: "json",
-        data: {
-          "description": cardName
-        }
+        contentType: 'application/x-www-form-urlencoded',
+        data: "description="+cardName
       })
       .done(function(data, textStatus, jqXHR){
         console.log(JSON.stringify(data));
