@@ -112,7 +112,7 @@ var boardButtonCallback = function(t){
 };
 
 var cardButtonCallback = function(t){
-  alert('start');
+  console.log('start');
   t.card('name')
   .get('name')
   .then(function(cardName){
@@ -130,17 +130,17 @@ var cardButtonCallback = function(t){
         }
       })
       .done(function(data, textStatus, jqXHR){
-        alert(JSON.stringify(data));
+        console.log(JSON.stringify(data));
       })
       .fail(function(jqXHR, textStatus, errorThrown) {
-        alert(JSON.stringify(jqXHR));
+        console.log(JSON.stringify(jqXHR));
       })
       .always(function() {
-        alert( "complete" );
+        console.log( "complete" );
       });
     })
   });
-  alert('end')
+  console.log('end')
 };
 
 TrelloPowerUp.initialize({
