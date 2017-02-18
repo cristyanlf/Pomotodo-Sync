@@ -132,11 +132,8 @@ var cardButtonCallback = function(t){
         console.log(JSON.stringify(data));
       })
       .fail(function(jqXHR, textStatus, errorThrown) {
-        console.log(JSON.stringify(jqXHR));
+        console.log(errorThrown);
       })
-      .always(function() {
-        console.log( "complete" );
-      });
     })
   });
   console.log('end')
